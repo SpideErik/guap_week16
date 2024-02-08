@@ -10,21 +10,21 @@ def lottery():
     shuffle(balls)
     tickets = [make_ticket(), make_ticket()]
 
-    for n, i in enumerate(balls[:75], 1):
+    for n, i in enumerate(balls[:94], 1):
         print(f'Ход номер - {n}. Выпало - {i}')
         for player in range(2):
             if i in tickets[player]:
-                print(f'В билете игрока{player + 1} есть число {i}')
+                print(f'В билете игрока{player+1} есть число {i}')
                 tickets[player].remove(i)
                 if not tickets[player]:
-                    print(f'Игрок{player} выйграл!')
+                    print(f'Игрок{player+1} выйграл!')
                     return
             else:
-                print(f'В билете игрока{player} нет числа {i}')
+                print(f'В билете игрока{player+1} нет числа {i}')
 
     print('Список выпавших чисел:', balls[:75])
     for player in range(2):
-        print(f'Игроку{player} не повезло с билетом!')
+        print(f'Игроку{player+1} не повезло с билетом!')
         print('Не выпавшие числа:', tickets[player])
 
 
