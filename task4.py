@@ -1,16 +1,15 @@
 from random import shuffle, sample
 
 
-def make_ticket():
-    return sample(list(range(1, 101)), 50)
+def make_random_list(n):
+    return sample(list(range(1, 101)), n)
 
 
 def lottery():
-    balls = list(range(1, 101))
-    shuffle(balls)
-    tickets = [make_ticket(), make_ticket()]
+    balls = make_random_list(75)
+    tickets = [make_random_list(50), make_random_list(50)]
 
-    for n, i in enumerate(balls[:75], 1):
+    for n, i in enumerate(balls, 1):
         print(f'Ход номер - {n}. Выпало - {i}')
         for player in range(2):
             if i in tickets[player]:
@@ -22,7 +21,7 @@ def lottery():
             else:
                 print(f'В билете игрока{player+1} нет числа {i}')
 
-    print('Список выпавших чисел:', balls[:75])
+    print('Список выпавших чисел:', balls)
     for player in range(2):
         print(f'Игроку{player+1} не повезло с билетом!')
         print('Не выпавшие числа:', tickets[player])
