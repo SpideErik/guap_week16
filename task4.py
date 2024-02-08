@@ -10,7 +10,7 @@ def lottery():
     shuffle(balls)
     tickets = [make_ticket(), make_ticket()]
 
-    for n, i in enumerate(balls[:94], 1):
+    for n, i in enumerate(balls[:75], 1):
         print(f'Ход номер - {n}. Выпало - {i}')
         for player in range(2):
             if i in tickets[player]:
